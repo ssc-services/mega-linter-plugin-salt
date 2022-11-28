@@ -1,0 +1,35 @@
+descriptor_id: SALT
+descriptor_type: tooling_format
+file_extensions:
+  - .sls
+linters:
+  - linter_name: saltlint
+    linter_text: |
+      `salt-lint` checks Salt State files (SLS) for best practices and behavior that could potentially be improved.
+    cli_executable: salt-lint
+    examples:
+      - "salt-lint state.sls"
+    install:
+      dockerfile:
+        - RUN pip install salt-lint
+    name: SALT_SALTLINT
+    linter_url: https://salt-lint.readthedocs.io/en/latest/
+    linter_repo: https://github.com/warpnet/salt-lint
+    config_file_name: ".salt-lint"
+    cli_lint_mode: list_of_files
+    cli_help_arg_name: "--help"
+    is_formatter: false
+    cli_version_arg_name: "--version"
+    cli_lint_errors_count: regex_count
+    cli_lint_errors_regex: '\\[(\\d{3})\\]'
+    linter_spdx_license: "MIT"
+    ide:
+      vim:
+        - name: ale
+          url: https://github.com/dense-analysis/ale
+      sublime:
+        - name: plugin
+          url: https://github.com/warpnet/SublimeLinter-salt-lint
+      vscode:
+        - name: native support
+          url: https://code.visualstudio.com/
