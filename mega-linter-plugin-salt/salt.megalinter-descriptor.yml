@@ -15,11 +15,13 @@ linters:
     name: SALT_SALTLINT
     linter_url: https://salt-lint.readthedocs.io/en/latest/
     linter_repo: https://github.com/warpnet/salt-lint
+    cli_config_arg_name: "-c"
     config_file_name: ".salt-lint"
     cli_lint_mode: list_of_files
     cli_help_arg_name: "--help"
     is_formatter: false
     cli_version_arg_name: "--version"
+    version_extract_regex: "(?<=salt-lint )\\d+(\\.\\d+)+"
     cli_lint_errors_count: regex_count
     cli_lint_errors_regex: '\\[(\\d{3})\\]'
     linter_spdx_license: "MIT"
